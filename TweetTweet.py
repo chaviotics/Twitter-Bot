@@ -17,7 +17,9 @@ user = api.me()
 # public_tweets = api.home_timeline()
 
 # cursor is a generator
-def limit_handle(cursor):
+def limit_handle(cursor): 
+    # as soon as we hit the rate limit, we pause for a few milliseconds, then continue
+    # this is because of Twitter's rate limit
     try:
         while True:
             yield cursor.next()
@@ -27,4 +29,31 @@ def limit_handle(cursor):
     
 # Generous bot that follows back when someone follows us
 for follower in limit_handle(tweepy.Cursor(api.followers).items()):
-    print(follower.name)
+    pass
+    # if follower.followers_count > 100:
+    #     follower.follow()
+
+    # if follower.name == 'dindin': # name of follower
+    #     follower.follow()
+    #     break
+
+    # print(follower.name) # prints the followers
+
+
+# Narcissist Bot that loves your own tweets and others weets
+
+search_string = 'python'
+numbersOfTweets = 2
+
+for tweet in limit_handle(tweepy.Cursor(api.search, search_string).items(numbersOfTweets)):
+    pass
+    # try:
+    #     tweet.favorite()
+    #     tweet.retweet()
+    #     print('I liked that tweet.')
+    # except tweepy.TweepError as e:
+    #     print(e.reason)
+    # except StopIteration:
+    #     break
+
+
