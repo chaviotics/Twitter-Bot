@@ -29,6 +29,7 @@ def limit_handle(cursor):
 
     
 # Generous bot that follows back when someone follows us
+'''
 for follower in limit_handle(tweepy.Cursor(api.followers).items()):
     pass
     # if follower.followers_count > 100:
@@ -56,5 +57,7 @@ for tweet in limit_handle(tweepy.Cursor(api.search, search_string).items(numbers
     #     print(e.reason)
     # except StopIteration:
     #     break
+
+'''
 
 
