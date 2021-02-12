@@ -8,12 +8,13 @@ import time
 # from https://docs.tweepy.org/en/latest/getting_started.html
 
 # verifies our account
+'''
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 user = api.me()
-
+'''
 # public_tweets = api.home_timeline()
 
 # cursor is a generator
